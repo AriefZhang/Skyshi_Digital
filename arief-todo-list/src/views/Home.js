@@ -26,7 +26,9 @@ export default function Home() {
         <h1 className='header-title fw-700' data-cy='activity-title'>
           Activity
         </h1>
-        <AddButton action={AddActivity} text="Tambah" data-cy='activity-add-button'/>
+        <div data-cy='activity-add-button' onClick={AddActivity}>
+          <AddButton action={AddActivity} text="Tambah" data-cy='activity-add-button'/>
+        </div>
       </div>
       <Suspense fallback={<Loading />}>
         {
