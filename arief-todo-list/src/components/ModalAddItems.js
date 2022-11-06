@@ -10,6 +10,9 @@ import {
 } from '../store/actions/ActivityGroup'
 
 import CloseModalIcon from '../assets/icon/modal-add-close-button.svg'
+import ItemCheckIcon from '../assets/icon/item-check-icon.svg'
+import ChevronDownIcon from '../assets/icon/tabler_chevron-down.svg'
+import ChevronUpIcon from '../assets/icon/tabler_chevron-up.svg'
 import AddButton from '../components/AddButton'
 
 export default function Modal({ action, title }) {
@@ -17,8 +20,10 @@ export default function Modal({ action, title }) {
   const { activityDetailsById, todoItemsById } = useSelector(state => state.activityGroupReducer)
 
   const [ focus, setFocus ] = useState(false)
+  const [ showDropdown, setShowDropdown ] = useState(false)
   const [ userInput, setUserInput ] = useState({
-    title: ''
+    title: '',
+    priority: 'very-high'
   })
 
   const isEdit = title.includes('Edit')
@@ -46,6 +51,18 @@ export default function Modal({ action, title }) {
     })
   }
 
+  const changeShowDropdown = () => {
+    setShowDropdown(!showDropdown)
+  }
+
+  const setPriority = (prio) => {
+    setUserInput({
+      ...userInput,
+      priority: prio
+    })
+    changeShowDropdown()
+  }
+
   useEffect(() => {
     if (isEdit && isActivity) {
       setUserInput({
@@ -53,7 +70,8 @@ export default function Modal({ action, title }) {
       })
     } else if (isEdit && isTodoList) {
       setUserInput({
-        title: todoItemsById.title
+        title: todoItemsById.title,
+        priority: todoItemsById.priority
       })
     }
   }, [isEdit, isActivity, isTodoList, activityDetailsById, todoItemsById])
@@ -98,18 +116,79 @@ export default function Modal({ action, title }) {
                 isTodoList ? (
                   <>
                     <h5 className='modal-content-priority fw-600'>PRIORITY</h5>
-                    <div className='modal-content-input'>
-                      <select name="priority" onChange={focusOnUserInput} data-cy='modal-add-priority-dropdown'>
-                        <option value="very-high" defaultValue>Very High</option>
-                        <option value="high">High</option>
-                        <option value="normal">Normal</option>
-                        <option value="low">Low</option>
-                        <option value="very-low">Very Low</option>
-                      </select>
-                    </div>
-                    <div>
-                      <div>
 
+                    <div className='select-dropdown__container'>
+                      <div className='select-dropdown__wrapper'>
+                        {
+                          !showDropdown ? (
+                            <div className='select-dropdown__items' onClick={changeShowDropdown}>
+                              <div className='center'>
+                                <div className={`select-dropdown__circle ${ userInput.priority === 'very-low' ? 'todo-list__circle-very-low' : userInput.priority === 'low' ? 'todo-list__circle-low' : userInput.priority === 'normal' ? 'todo-list__circle-normal' : userInput.priority === 'high' ? 'todo-list__circle-high' : 'todo-list__circle-very-high'}`}></div>
+                                <h5>{
+                                  userInput.priority === 'very-low' ? 'Very Low' : userInput.priority === 'low' ? 'Low' : userInput.priority === 'normal' ? 'Normal' : userInput.priority === 'high' ? 'High' : 'Very High'
+                                }</h5>
+                              </div>
+                              <img src={ChevronDownIcon} alt=""/>
+                            </div>
+                          ) : (
+                            <>
+                              <div className='select-dropdown__items background-select__title'>
+                                <h5>Pilih Priority</h5>
+                                <img src={ChevronUpIcon} alt="" onClick={changeShowDropdown}/>
+                              </div>
+
+                              <div className='select-dropdown__items' onClick={() => setPriority('very-high')}>
+                                <div className='center'>
+                                  <div className='select-dropdown__circle todo-list__circle-very-high'></div>
+                                  <h5>Very High</h5>
+                                </div>
+                                {
+                                  userInput.priority === 'very-high' ? <img src={ItemCheckIcon} alt=""/> : <></>
+                                }
+                              </div>
+
+                              <div className='select-dropdown__items' onClick={() => setPriority('high')}>
+                                <div className='center'>
+                                  <div className='select-dropdown__circle todo-list__circle-high'></div>
+                                  <h5>High</h5>
+                                </div>
+                                {
+                                  userInput.priority === 'high' ? <img src={ItemCheckIcon} alt=""/> : <></>
+                                }
+                              </div>
+
+                              <div className='select-dropdown__items' onClick={() => setPriority('normal')}>
+                                <div className='center'>
+                                  <div className='select-dropdown__circle todo-list__circle-normal'></div>
+                                  <h5>Normal</h5>
+                                </div>
+                                {
+                                  userInput.priority === 'normal' ? <img src={ItemCheckIcon} alt=""/> : <></>
+                                }
+                              </div>
+
+                              <div className='select-dropdown__items' onClick={() => setPriority('low')}>
+                                <div className='center'>
+                                  <div className='select-dropdown__circle todo-list__circle-low'></div>
+                                  <h5>Low</h5>
+                                </div>
+                                {
+                                  userInput.priority === 'low' ? <img src={ItemCheckIcon} alt=""/> : <></>
+                                }
+                              </div>
+
+                              <div className='select-dropdown__items border-bottom-none ' onClick={() => setPriority('very-low')}>
+                                <div className='center'>
+                                  <div className='select-dropdown__circle todo-list__circle-very-low'></div>
+                                  <h5>Very Low</h5>
+                                </div>
+                                {
+                                  userInput.priority === 'very-low' ? <img src={ItemCheckIcon} alt=""/> : <></>
+                                }
+                              </div>
+                            </>
+                          )
+                        }
                       </div>
                     </div>
                   </>

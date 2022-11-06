@@ -62,7 +62,7 @@
 }
 
 .modal-content-padding {
-  padding: 38px 30px 23px;
+  padding: 20px 30px 63px;
 }
 
 .modal-content-delete-padding {
@@ -130,10 +130,7 @@
 
 .modal-content-priority {
   margin-top: 26px;
-}
-
-.modal-content-input > select {
-  /* display: none; */
+  margin-bottom: 9px;
 }
 
 .modal-footer {
@@ -166,6 +163,10 @@
 
   .modal-header img {
     margin-right: 41px;
+  }
+
+  .modal-content-padding {
+    padding: 38px 30px 73px;
   }
 }
 

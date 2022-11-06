@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { asyncGetActivityGroup, setShowActivityModal } from '../store/actions/ActivityGroup'
 
 import AddButton from '../components/AddButton'
-import ActivityCart from '../components/ActivityCard'
-import HomeEmptyState from '../components/content/HomeEmptyState'
+const ActivityCart = React.lazy(() => import('../components/ActivityCard'))
+const HomeEmptyState = React.lazy(() => import('../components/content/HomeEmptyState'))
 const Loading = React.lazy(() => import('../components/Loading'))
 
 export default function Home() {
@@ -26,9 +26,7 @@ export default function Home() {
         <h1 className='header-title fw-700' data-cy='activity-title'>
           Activity
         </h1>
-        <div data-cy='activity-add-button' onClick={AddActivity}>
-          <AddButton action={AddActivity} text="Tambah" data-cy='activity-add-button'/>
-        </div>
+        <AddButton action={AddActivity} text="Tambah" data-cy='activity-add-button'/>
       </div>
       <Suspense fallback={<Loading />}>
         {
