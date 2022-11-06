@@ -1,0 +1,38 @@
+.home__container {
+  padding: 28px 20px;
+}
+
+.home__activity-wrapper {
+  margin-inline: -21px;
+  margin-block: -13px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 580px) {
+  .home__container {
+    padding: 43px 40px;
+  }
+
+  .home__activity-wrapper {
+    margin-inline: -21px;
+    margin-block: -13px;
+    overflow-y: auto;
+    display: block;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home__container {
+    padding: 43px 95px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .home__container {
+    padding: 43px 220px;
+  }
+}

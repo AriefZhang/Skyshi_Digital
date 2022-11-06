@@ -1,0 +1,97 @@
+.button {
+  border-radius: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+}
+
+.add-button {
+  padding: 9.5px 15px;
+  background-color: rgba(22, 171, 248, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.add-button-plus-icon-wrapper {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  margin-right: 8.5px;
+}
+
+.add-button-plus-icon-horizontal {
+  height: 2px;
+  width: 7px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.add-button-plus-icon-vertical {
+  height: 7px;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.add-button:hover {
+  background-color: rgba(24, 149, 212, 1);
+  cursor: pointer;
+}
+
+.add-button-disabled {
+  pointer-events: none;
+  background-color: rgba(22, 171, 248, 0.4);
+}
+
+.remove-button__cancel {
+  padding: 13.5px 21px;
+  background-color: rgba(244, 244, 244, 1);
+  color: rgba(74, 74, 74, 1);
+}
+
+.remove-button__cancel h5 {
+  color: rgba(74, 74, 74, 1) !important;
+}
+
+.remove-button__cancel:hover {
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+}
+
+.remove-button__delete {
+  padding: 13.5px 21px;
+  background-color: rgba(237, 76, 92, 1);
+}
+
+.remove-button__delete h5 {
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.remove-button__delete:hover {
+  background-color: rgb(221, 65, 81);
+  cursor: pointer;
+}
+
+@media (min-width: 580px) {
+  .button {
+    border-radius: 45px;
+    min-width: 88px;
+  }
+  
+  .add-button {
+    padding: 13.5px 21px;
+  }
+
+  .add-button-plus-icon-wrapper {
+    width: 14px;
+    height: 14px;
+    margin-right: 11px;
+  }
+
+  .add-button-plus-icon-horizontal {
+    width: 14px;
+  }
+  
+  .add-button-plus-icon-vertical {
+    height: 14px;
+  }
+}
