@@ -117,7 +117,7 @@ export default function Modal({ action, title }) {
               }
             </div>
             
-            <div className='modal-footer'>
+            <div className='modal-footer' data-cy='modal-add-save-button' onClick={click}>
               <AddButton action={click} disabled={!userInput?.title?.length} data-cy='modal-add-save-button'/>
             </div>
 
