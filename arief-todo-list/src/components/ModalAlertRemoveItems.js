@@ -14,7 +14,7 @@ export default function Modal({ title }) {
   }
 
   return (
-    <div className='modal-wrapper'>
+    <div className='modal-wrapper' data-cy='modal-information'>
       <div className='modal-layout-outer'>
         <div className='modal-layout-inner modal-full-page' onClick={ closeModal }></div>
         <div className='modal-full-page'>

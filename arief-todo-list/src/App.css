@@ -142,12 +142,6 @@ p {
   }
 
   .ellipsis {
-    width: calc(100vw - 380px);
-  }
-}
-
-@media (min-width: 1440px) {
-  .ellipsis {
-    width: calc(60% - 380px);
+    width: 100%;
   }
 }

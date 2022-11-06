@@ -60,14 +60,14 @@ export default function TodoListCard({ data, isChecked }) {
     <div className='todo-list__container d-flex'>
       <div className='todo-list__content d-flex'>
         <label className='todo-list__checkbox-container'>
-          <input className='todo-list__checkbox' type="checkbox" onChange={onUserChecked} checked={isChecked}/>
+          <input className='todo-list__checkbox' type="checkbox" onChange={onUserChecked} checked={isChecked} data-cy='todo-item-checkbox'/>
           <span className="todo-list__checkmark"></span>
         </label>
         <div className={`todo-list__circle ${ data.priority === 'very-low' ? 'todo-list__circle-very-low' : data.priority === 'low' ? 'todo-list__circle-low' : data.priority === 'normal' ? 'todo-list__circle-normal' : data.priority === 'high' ? 'todo-list__circle-high' : 'todo-list__circle-very-high'}`}></div>
         <h5 className={`todo-list__title ${isChecked ? 'todo-list__title-finish-todo' : ''}`}>{data.title}</h5>
         <img className='todo-list__edit-button activity__cursor-pointer' src={TodoTitleEditIcon} alt="" onClick={editTitleTodoList}/>
       </div>
-      <img className='todo-list__delete-button' src={trash} alt="" onClick={removeTodoList}/>
+      <img className='todo-list__delete-button' src={trash} alt="" onClick={removeTodoList} data-cy='todo-item-delete-button'/>
     </div>
   )
 }

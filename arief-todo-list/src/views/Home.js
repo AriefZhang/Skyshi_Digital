@@ -23,15 +23,15 @@ export default function Home() {
   return (
     <div className="home__container">
       <div className="header">
-        <h1 className='header-title fw-700'>
+        <h1 className='header-title fw-700' data-cy='activity-title'>
           Activity
         </h1>
-        <AddButton action={AddActivity} text="Tambah"/>
+        <AddButton action={AddActivity} text="Tambah" data-cy='activity-add-button'/>
       </div>
       <Suspense fallback={<Loading />}>
         {
           activityList.length ? (
-            <div className='home__activity-wrapper m-auto'>
+            <div className='home__activity-wrapper m-auto' data-cy='activity-item'>
               {
                 activityList.map(list => {
                   return (
@@ -41,7 +41,7 @@ export default function Home() {
               }
             </div>
           ) : (
-              <HomeEmptyState />
+              <HomeEmptyState data-cy='activity-item'/>
           )
         }
       </Suspense>

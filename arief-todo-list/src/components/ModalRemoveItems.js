@@ -36,10 +36,12 @@ export default function Modal({ action, title }) {
                 <RemoveButton 
                   text="Batal"
                   action={closeModal}
+                  data-cy='modal-delete-cancel-button'
                 />
                 <RemoveButton 
                   text="Hapus"
                   action={click}
+                  data-cy='modal-delete-confirm-button'
                 />
               </div>
             </div>

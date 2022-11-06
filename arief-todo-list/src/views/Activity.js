@@ -58,16 +58,16 @@ export default function Activity() {
           >
             <img src={TodoBackIcon} alt=""/>
           </Link>
-          <h1 className='header-title m-inline-19 fw-700 ellipsis'>
+          <h1 className='header-title m-inline-19 fw-700 ellipsis' onClick={EditTitleActivityGroup} data-cy='todo-title'>
             { activityDetailsById?.title }
           </h1>
-          <img className='activity__cursor-pointer' src={TodoTitleEditIcon} alt="" onClick={EditTitleActivityGroup}/>
+          <img className='activity__cursor-pointer' src={TodoTitleEditIcon} alt="" onClick={EditTitleActivityGroup} />
         </div>
         <div className='center activity_title-lower'>
           {
             todoItems.length ? (
               <div className='activity__sorting-button'>
-                <div className='activity__sorting-button-wrapper center h-100' onClick={showSortPopUp}>
+                <div className='activity__sorting-button-wrapper center h-100' onClick={showSortPopUp} data-cy='todo-sort-button'>
                   <img src={TodoSortIcon} alt=""/>
                 </div>
 
@@ -85,7 +85,7 @@ export default function Activity() {
                         }
                       </div>
 
-                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('terlama')}>
+                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('terlama')} data-cy='sort-selection'>
                         <div className='d-flex'>
                           <img className='mr-17' src={TodoSortTerlamaIcon} alt=""/>
                           <h5>Terlama</h5>
@@ -95,7 +95,7 @@ export default function Activity() {
                         }
                       </div>
 
-                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('asc')}>
+                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('asc')} data-cy='todo-sort-button'>
                         <div className='d-flex'>
                           <img className='mr-17' src={TodoSortAscIcon} alt=""/>
                           <h5>A-Z</h5>
@@ -105,7 +105,7 @@ export default function Activity() {
                         }
                       </div>
 
-                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('desc')}>
+                      <div className='activity__sorting-wrapper d-flex' onClick={() => changeSortBy('desc')} data-cy='todo-sort-button'>
                         <div className='d-flex'>
                           <img className='mr-17' src={TodoSortDescIcon} alt=""/>
                           <h5>Z-A</h5>
@@ -132,7 +132,7 @@ export default function Activity() {
               </div>
             ) : <></>
           }
-          <AddButton action={AddTodoList} text="Tambah"/>
+          <AddButton action={AddTodoList} text="Tambah" data-cy='todo-add-button'/>
         </div>
       </div>
       <Suspense>

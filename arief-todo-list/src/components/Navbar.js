@@ -17,12 +17,13 @@ export default function Navbar() {
             to="/"
           >
             <img src={TodoBackIcon} alt=""/>
-            <h5>New Activity</h5>
+            <h5 data-cy='header-title'>New Activity</h5>
           </Link>
         ) : !isActivity || winWidth >= 580 ? (
           <Link
             className="navbar__to-home-page fw-700"
             to="/"
+            data-cy='header-title'
           >
             TO DO LIST APP
           </Link>

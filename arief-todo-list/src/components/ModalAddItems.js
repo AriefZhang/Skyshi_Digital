@@ -90,7 +90,7 @@ export default function Modal({ action, title }) {
             <div className='modal-content modal-content-padding'>
               <h5 className='fw-600'>NAMA { isActivity ? 'ACTIVITY' : 'LIST ITEM' }</h5>
               <div className='modal-content-input'>
-                <input className='input-add-items w-100' type='text' onFocus={() => focusOnInput(true)} onBlur={() => focusOnInput(false)} name="title" value={userInput.title} onChange={focusOnUserInput} onKeyDown={keyPress}/>
+                <input className='input-add-items w-100' type='text' onFocus={() => focusOnInput(true)} onBlur={() => focusOnInput(false)} name="title" value={userInput.title} onChange={focusOnUserInput} onKeyDown={keyPress} data-cy='modal-add-name-input'/>
                 { focus || userInput?.title?.length ? <></> : <p>{ placeholder }</p>}
               </div>
               
@@ -99,7 +99,7 @@ export default function Modal({ action, title }) {
                   <>
                     <h5 className='modal-content-priority fw-600'>PRIORITY</h5>
                     <div className='modal-content-input'>
-                      <select name="priority" onChange={focusOnUserInput}>
+                      <select name="priority" onChange={focusOnUserInput} data-cy='modal-add-priority-dropdown'>
                         <option value="very-high" defaultValue>Very High</option>
                         <option value="high">High</option>
                         <option value="normal">Normal</option>
@@ -118,7 +118,7 @@ export default function Modal({ action, title }) {
             </div>
             
             <div className='modal-footer'>
-              <AddButton action={click} disabled={!userInput?.title?.length}/>
+              <AddButton action={click} disabled={!userInput?.title?.length} data-cy='modal-add-save-button'/>
             </div>
 
           </div>
